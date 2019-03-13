@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+        #bt{
+            margin-left: 50px;
+            margin-top: 30px;
+        }
+        #test{
+            margin-left: 50px;
+            margin-top: 40px;
+        }
+        #k1{
+            width: 800px;
+            height: 200px;
+        }
+        #k2{
+            width: 800px;
+            height: 150px;
+            margin-top: 25px;
+        }
+        #l1{
+            font-size: 25px;
+            color: red;
+        }
+        #p1{
+            font-size: 25px;
+            display: inline;
+        }
+        #i1{
+            height: 25px;
+            width: 275px;
+            display: inline;
+        }
+        #i2{
+            height: 25px;
+            width: 200px;
+            display: inline;
+        }
+        #p2{
+            color:red;
+            display: inline;
+            font-size: 25px;
+            margin-left: 10px;
+        }
+        #p3{
+            font-size: 25px;
+            display: inline;
+        }
+        #s1{
+            margin-top: 15px;
+            width: 50px;
+            height: 25px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="bt">毕业生信息</h1>
+    <form id="test" method="GET" action="#">
+        <fieldset id="k1">
+            <legend id="l1">
+                学生信息
+            </legend>
+            <div>
+                <p id="p1">姓&nbsp;&nbsp;名：</p> <input type="text" name="name1" id="i1" autofocus="autofocus" required="required" placeholder="请输入姓名" /><p id="p2">*</p>
+            </div>
+            <div>
+                <p id="p1">学&nbsp;&nbsp;号：</p> <input type="number" name="name2" id="i1" required="required" placeholder="请输入学号" /><p id="p2">*</p>
+            </div>
+            <div>
+                <p id="p1">手&nbsp;&nbsp;机：</p> <input type="tel" name="name3" id="i1" required="required" placeholder="请输入手机号" /><p id="p2">*</p>
+            </div>
+            <div>
+                <p id="p1">邮&nbsp;&nbsp;箱：</p> <input type="email" name="name4" id="i1" required="required" placeholder="请输入邮箱地址" /><p id="p2">*</p>
+            </div>
+        </fieldset>
+        <fieldset id="k2">
+            <legend id="l1">
+                录取情况
+            </legend>
+            <div>
+                <p id="p1">录取学校</p> <input type="text" name="name5" id="i1"/>
+            </div>
+            <div>
+                <p id="p1">入学成绩</p> <input type="text" name="name6" id="i1"/>
+            </div>
+            <div>
+                <p id="p1">入学时间</p> <input type="date" name="name7" id="i2"/>
+            </div>
+        </fieldset>
+        <input type="submit" value="提交" id="s1"/>
+    </form>
+</body>
+</html>
