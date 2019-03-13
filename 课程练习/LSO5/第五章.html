@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <script>
+        var obj = {"useeerName":"zhangsan","age":20};
+        obj.__proto__.sex = "male";
+        // for in遍历的是对象的所有可枚举属性（所有对象都有__proto__）
+        for(var i in obj){
+            console.log(i);
+            // obj[变量]
+            console.log(obj[i])
+        }
+
+        var arr1 = [1,2,3];
+        for(var j in arr1){
+            console.log(j);
+        }
+
+        var arr2 = [1,2,3];
+        console.log(Object(arr2));
+        for(var j in arr2){
+            console.log(j);
+        }
+        // 这种错误不容易找（用发反写来规避）
+        var a = 45;
+        if(a = 54){
+            console.log("相等!!");
+            console.log(a);
+        }
+
+        var a1 = 45;
+        if(45 == a1){
+            console.log("相等!!");
+            console.log(a1);
+        }
+
+        var a2 = "1";
+        console.log(a2 += 1);
+
+        console.log(3==new String(3));
+        console.log(3===new String(3));
+    </script>
+</body>
+</html>
