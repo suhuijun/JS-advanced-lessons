@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <script>
+        // 这个东西牛逼
+        var score = 85;
+        console.log((score>90&&"优")||(score>75&&"良")||(score>60&&"及格")||"不及格");
+
+        function sum(x,y,z){
+            x = x;
+            y = y;
+            z = z;
+            console.log(x,y,z);
+            return x+y+z;
+        }
+        console.log(sum());
+        function sum1(x,y,z){
+            x = x||1;
+            y = y||2;
+            z = z||3;
+            console.log(x,y,z);
+            return x+y+z;
+        }
+        console.log(sum1());
+        function sum2(x,y,z){
+            x = x||1;
+            y = y||2;
+            z = z||3;
+            console.log(x,y,z);
+            return x+y+z;
+        }
+        console.log(sum2(0,0,0));
+        // 该方法的缺点
+    </script>
+</body>
+</html>
