@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+</head>
+<body>
+     <script>
+         <!-- ES5 ECMAScript 5 -->
+
+
+if(true){
+    var userName = "zhangsan";
+}
+console.log(userName);
+
+if(false){
+   var userName = "zhangsan";
+}
+console.log(userName);
+<!-- 两个都是能够输出的，因为 声明提前，将userName提升为全局变量 -->
+
+for(var i = 0;i < 3;i++){
+
+}
+console.log(i)
+
+function fn3(){
+   console.log(this);
+}
+fn3();
+
+function fn3(){
+    'use strict'
+   console.log(this);
+}
+fn3();
+
+function judge(){
+    var result = (this === undefined?true:false);
+}
+if(judge()){
+    console.log("严格模式");
+}
+else{
+    console.log("非严格模式");
+}
+
+var str = "abcdef";
+str.length=1;
+console.log(str.length);
+
+'use strict'
+var str = "abcdef";
+str.length=1;
+console.log(str.length);
+
+var index = 1;
+switch(index){
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+        console.log("工作日");
+        break;
+    case 6:
+    case 7:
+        console.log("休息日");
+        break;
+}
+
+
+
+{
+    if(true){
+        if(false){
+            var a = 30;
+            var a = 50;
+            var b = 60;
+        }
+    }
+}
+console.log(a);
+console.log(a);
+console.log(b);
+
+function fn1(){
+    num12 = 123;
+}
+fn1();
+console.log(num12);
+
+function fn2(){
+    'use strict'
+    num13 = 245;
+}
+fn2();
+console.log(num13);
+
+function fn2(){
+    'use strict'
+    num12 = 245;
+}
+fn2();
+console.log(num12);
+
+function fn(){
+    var num11 = 123;
+}
+fn();
+console.log(num11);
+function fn4(){
+    'use strict'
+    num11 = 245;
+}
+fn4();
+console.log(num11);
+
+function tfn(){
+    console.log(this);
+}
+tfn();
+
+function tfn(){
+    'use strict';
+    console.log(this);
+}
+tfn();
+
+function jF(){
+    return this === undefined?ture:false;
+}
+jF();
+
+function jF(){
+    'use strict';
+    return this===undefined?true:false;
+}
+jF();
+
+    </script>
+</body>
+</html>
