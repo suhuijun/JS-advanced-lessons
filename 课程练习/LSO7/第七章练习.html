@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <script>
+        //(以下代码没有说明皆是存在预处理)
+        //函数声明
+        function max(a,b){
+            return a;
+        }
+        max(1,2);
+
+        max1(1,2);
+        function max1(a,b){
+            return a;
+        }
+
+        var min = function(a,b){
+            return b;
+        }
+        min(3,4);
+
+        min1(3,4)
+        var min1 = function(a,b){
+            return b;
+        }//结果报错（这种类似表达式的函数声明方式并不存在预处理）
+
+        //函数定义灵活，但是由于实例化，所以执行效率较低。Function("参数1","参数2",...,"函数体")
+        var max2 = new Function('a','b','return a > b? a:b;');//function首字母大写
+        max2(5,6);
+
+        max2(5,6);
+        var max2 = new Function('a','b','return a > b? a:b;');
+
+        //函数调用
+        //直接调用
+        function test(){
+            console.log(this);//非严格模式，this属于全局变量
+        }
+        test();
+
+        test();
+        function test(){
+            console.log(this);
+        }
+
+        'use strict'
+        function test(){
+            console.log(this);//严格模式，this为undefined
+        }
+        test();
+
+        'use strict'
+        test();
+        function test(){
+            console.log(this);
+        }
+
+        //将函数放在对象中，作为方法调用。对象名.方法名（）,this指向调用该方法的对象
+        var obj = {
+            x: 0,
+            test: function(){
+                console.log(this);
+            }
+        }
+        obj.test();
+
+        obj.test();
+        var obj = {
+            x: 0,
+            test: function(){
+                console.log(this);
+            }
+        }
+
+        //利用call将主调对象转移
+        // call和apply的作用都是在特定的作用域中将函数绑定到另外一个对象上去运行，即可以用来重新定义函数的执行环境，
+        // 两者仅在定义参数方式上有所区别。它们接收参数方面不同：call和apply的第一个参数都是需要调用的函数对象，在函
+        // 数体内这个参数就是this的值，剩余的参数是需要传递给函数的值，call与apply的不同就是call传的值可以是任意的，
+        // 而apply传的剩余值必须为数组
+        //方法.call(obj,param1,param2...)
+        //方法.apply(obj,args)
+        var objA = {"objName":"AAA"};
+        var objB = {"objName":"BBB"};
+        objA.test = function(){
+            console.log(this.objName);
+        }
+        objA.test();
+        objA.test.call(objB);//变成objB调用test方法
+
+        objA.test();
+        objA.test.call(objB);
+        var objA = {"objName":"AAA"};
+        var objB = {"objName":"BBB"};
+        objA.test = function(){
+            console.log(this.objName);
+        }//结果：报错（没有预处理）
+
+        //构造函数调用（this指实例化的对象）
+        function Person(username){
+            this.username = username;
+            this.sayH = function(){
+                console.log(this.username);
+            }
+        }
+        var person = new Person("zhangsan");
+        var person1 = new Person("lisi");
+
+        function Person(username){
+            this.username = username;
+        }
+        //节省很大的内存空间
+        Person.prototype.sayH = function(){
+            console.log(this.username);
+        }
+        var person = new Person("zhangsan");
+        var person1 = new Person("lisi");
+
+
+        function sum(x,y,z){
+            return x;
+        }
+        sum(1,2);//z是undefinde,结果是NaN
+
+        function sum(x,y,z){
+            z = z || 3;
+            return x;
+        }
+        sum(1,2);
+
+        function test(){
+            console.log(arguments);//函数特有属性,类数组结构
+        }
+        test("H W");
+
+        function test(){
+           var s ="";
+           for(var i = 0; i < arguments.length;i++){
+               s += arguments[i];
+           }
+           return s;
+        }
+        test("H","W");
+
+        var a = 1;
+        function test(x){//传参时，只是将参数的值传给了函数，对于本身，不会受到影响
+            x = 2;
+            console.log(x,a);
+        }
+        test(a);
+
+        var obj = {x: 0};
+        function bar
+
+        //定义一个函数，传入一个参数，完成对参数的复制处理，生成一个新的变量，并返回参数类型string boolean number数组
+        function copyArg(arg1){
+            var copy;
+            switch(true){
+                case (arg1 instanceof String):
+                case (arg1 instanceof Number):
+                case (arg1 instanceof Boolean):
+                    copy = arg1;
+                    break;
+                case (arg1 instanceof Array):
+                    copy = [];
+                    for(i = 0; i<arg1.length;i++){
+                        
+                    }
+
+
+
+
+
+
+
+            }
+        }
+    </script>
+</body>
+</html>
