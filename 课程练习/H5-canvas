@@ -1,0 +1,65 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #can{
+        background: url(mdld.jpg) no-repeat;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="can" width="720px" height= "480px">
+
+    </canvas>
+</body>
+<script>
+    var can = document.getElementById('can');
+    var tc = can.getContext("2d");
+    var x = 0,y = 0;
+
+    window.onload = function(){
+        tc.globalCompositeOperation = "source-over";
+        tc.beginPath();
+        tc.fillStyle = "black";
+        tc.fillRect(0,0,720,480);
+        tc.fill();
+        tc.closePath();
+    }
+
+    document.onmousedown = function(event){
+        var e = event || window.event;
+        document.onmousemove = function(e){
+            x = e.clientX;
+            y = e.clientY;
+            tc.globalCompositeOperation = "destination-out";
+            tc.beginPath();
+            tc.fillStyle = "black";
+            tc.arc(x-10, y-10, 20, 0, 2 * Math.PI);
+            tc.fill();
+            tc.closePath();
+        }
+    }
+    document.onmouseup = function(event){
+        var e = event || window.event;
+        var imgData = tc.getImageData(0, 0, 720, 480);
+        var t=0;
+        for (var i = 0; i < imgData.data.length; i += 4) {
+            (function(i){
+                var a = imgData.data[i+3];
+                if(a<10)
+                    t++;
+            })(i)
+        }
+        if(t/(imgData.data.length/4) >= 0.85){
+            tc.clearRect(0,0,720,480);
+        }
+        
+    }
+</script>
+</html>
